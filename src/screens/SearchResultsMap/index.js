@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View} from 'react-native';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import CustomMarker from '../../components/CustomMarker';
+import PostCarousalItem from '../../components/PostCarousalItem';
 
 import places from '../../../assets/data/feed';
 
@@ -28,6 +29,10 @@ const SearchResultsMap = (props) => {
           />
         ))}
       </MapView>
+
+      <View style={{position: 'absolute', bottom: 40}}>
+        <PostCarousalItem post={places[0]} />
+      </View>
     </View>
   );
 };
