@@ -3,7 +3,7 @@ import {View, Text, Image, useWindowDimensions} from 'react-native';
 import styles from './styles';
 
 const Post = ({post}) => {
-    const width = useWindowDimensions().width;
+  const width = useWindowDimensions().width;
   return (
     <View style={[styles.container, {width: width - 60}]}>
       <View style={styles.innerContainer}>
