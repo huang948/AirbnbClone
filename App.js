@@ -12,8 +12,6 @@ import {StatusBar} from 'react-native';
 
 import Router from './src/navigation/Router';
 
-import HomeScreen from './src/screens/Home';
-
 const App = () => {
   return (
     <>
