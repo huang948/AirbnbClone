@@ -24,5 +24,3 @@ const App = () => {
 };
 
 export default withAuthenticator(App);
-
-// TIME 1:00:00

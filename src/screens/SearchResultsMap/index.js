@@ -8,6 +8,7 @@ import {API, graphqlOperation} from 'aws-amplify';
 import {listPosts} from '../../graphql/queries';
 
 const SearchResultsMap = (props) => {
+  const {guests} = props;
   const [selectedPlaceId, setSelectedPlaceId] = useState(null);
   const [posts, setPosts] = useState([]);
   const flatlist = useRef();
@@ -24,7 +25,15 @@ const SearchResultsMap = (props) => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const postsResult = await API.graphql(graphqlOperation(listPosts));
+        const postsResult = await API.graphql(
+          graphqlOperation(listPosts, {
+            filter: {
+              maxGuests: {
+                ge: guests,
+              },
+            },
+          }),
+        );
         setPosts(postsResult.data.listPosts.items);
       } catch (e) {
         console.log(e);
